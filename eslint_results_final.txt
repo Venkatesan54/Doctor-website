@@ -1,0 +1,108 @@
+﻿
+C:\Users\VENKATESAN\Desktop\Hosting\DoctorProject\server.js
+  13:17  error  'require' is not defined  no-undef
+  14:14  error  'require' is not defined  no-undef
+  15:1   error  'require' is not defined  no-undef
+  21:24  error  'process' is not defined  no-undef
+  58:14  error  'process' is not defined  no-undef
+
+C:\Users\VENKATESAN\Desktop\Hosting\DoctorProject\src\components\BookingModal.jsx
+  26:9  warning  The 'timeSlots' logical expression could make the dependencies of useEffect Hook (at line 67) change on every render. To fix this, wrap the initialization of 'timeSlots' in its own useMemo() Hook  react-hooks/exhaustive-deps
+
+C:\Users\VENKATESAN\Desktop\Hosting\DoctorProject\src\components\ErrorBoundary.jsx
+  10:35  error  'error' is defined but never used  no-unused-vars
+  21:9   error  'process' is not defined           no-undef
+  59:14  error  'process' is not defined           no-undef
+
+C:\Users\VENKATESAN\Desktop\Hosting\DoctorProject\src\components\Footer.jsx
+  41:30  error  'Icon' is defined but never used  no-unused-vars
+
+C:\Users\VENKATESAN\Desktop\Hosting\DoctorProject\src\components\Navbar.jsx
+  68:15  error    Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+  66 |   // Γ£à Close mobile menu on route change
+  67 |   useEffect(() => {
+> 68 |     if (open) setOpen(false);
+     |               ^^^^^^^ Avoid calling setState() directly within an effect
+  69 |   }, [location.pathname]);
+  70 |
+  71 |   // Γ£à Close notification on outside click  react-hooks/set-state-in-effect
+  69:6   warning  React Hook useEffect has a missing dependency: 'open'. Either include it or remove the dependency array                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        react-hooks/exhaustive-deps
+  88:14  error    'error' is defined but never used                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              no-unused-vars
+
+C:\Users\VENKATESAN\Desktop\Hosting\DoctorProject\src\components\ProtectedRoute.jsx
+  8:5  error  'userProfile' is assigned a value but never used. Allowed unused vars must match /^[A-Z_]/u  no-unused-vars
+
+C:\Users\VENKATESAN\Desktop\Hosting\DoctorProject\src\context\AuthContext.jsx
+  8:14  error  Fast refresh only works when a file only exports components. Use a new file to share constants or functions between components  react-refresh/only-export-components
+
+C:\Users\VENKATESAN\Desktop\Hosting\DoctorProject\src\context\ThemeContext.jsx
+  3:14  error  Fast refresh only works when a file only exports components. Move your React context(s) to a separate file  react-refresh/only-export-components
+
+C:\Users\VENKATESAN\Desktop\Hosting\DoctorProject\src\lib\firebase\auth.js
+   5:3  error  'onAuthStateChanged' is defined but never used. Allowed unused vars must match /^[A-Z_]/u  no-unused-vars
+  15:3  error  Unnecessary try/catch wrapper                                                              no-useless-catch
+  34:3  error  Unnecessary try/catch wrapper                                                              no-useless-catch
+  44:3  error  Unnecessary try/catch wrapper                                                              no-useless-catch
+
+C:\Users\VENKATESAN\Desktop\Hosting\DoctorProject\src\lib\firebase\config.js
+  18:58  error  '_' is defined but never used  no-unused-vars
+
+C:\Users\VENKATESAN\Desktop\Hosting\DoctorProject\src\lib\firebase\firestore.js
+   13:3  error  'limit' is defined but never used. Allowed unused vars must match /^[A-Z_]/u  no-unused-vars
+   56:3  error  Unnecessary try/catch wrapper                                                 no-useless-catch
+  144:3  error  Unnecessary try/catch wrapper                                                 no-useless-catch
+  169:3  error  Unnecessary try/catch wrapper                                                 no-useless-catch
+  179:3  error  Unnecessary try/catch wrapper                                                 no-useless-catch
+  192:3  error  Unnecessary try/catch wrapper                                                 no-useless-catch
+  202:3  error  Unnecessary try/catch wrapper                                                 no-useless-catch
+  215:3  error  Unnecessary try/catch wrapper                                                 no-useless-catch
+  227:3  error  Unnecessary try/catch wrapper                                                 no-useless-catch
+  237:3  error  Unnecessary try/catch wrapper                                                 no-useless-catch
+
+C:\Users\VENKATESAN\Desktop\Hosting\DoctorProject\src\pages\AdminPanel.jsx
+   12:31  error  'deleteDoc' is defined but never used. Allowed unused vars must match /^[A-Z_]/u          no-unused-vars
+   12:42  error  'doc' is defined but never used. Allowed unused vars must match /^[A-Z_]/u                no-unused-vars
+   15:3   error  'getHospitals' is defined but never used. Allowed unused vars must match /^[A-Z_]/u       no-unused-vars
+   16:3   error  'getLabs' is defined but never used. Allowed unused vars must match /^[A-Z_]/u            no-unused-vars
+   29:9   error  'navigate' is assigned a value but never used. Allowed unused vars must match /^[A-Z_]/u  no-unused-vars
+  295:92  error  'idx' is defined but never used                                                           no-unused-vars
+
+C:\Users\VENKATESAN\Desktop\Hosting\DoctorProject\src\pages\Dashboard.jsx
+  70:14  error  'err' is defined but never used  no-unused-vars
+
+C:\Users\VENKATESAN\Desktop\Hosting\DoctorProject\src\pages\DigitalRecords.jsx
+  39:6  warning  React Hook useEffect has a missing dependency: 'fetchRecords'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+C:\Users\VENKATESAN\Desktop\Hosting\DoctorProject\src\pages\DoctorProfile.jsx
+   16:9   error    'navigate' is assigned a value but never used. Allowed unused vars must match /^[A-Z_]/u                                  no-unused-vars
+   24:10  error    'scrolled' is assigned a value but never used. Allowed unused vars must match /^[A-Z_]/u                                  no-unused-vars
+   70:6   warning  React Hook useEffect has a missing dependency: 'userProfile.favorites'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+   85:14  error    'error' is defined but never used                                                                                         no-unused-vars
+  126:14  error    'error' is defined but never used                                                                                         no-unused-vars
+
+C:\Users\VENKATESAN\Desktop\Hosting\DoctorProject\src\pages\EmergencyMode.jsx
+    9:10  error  'toast' is defined but never used. Allowed unused vars must match /^[A-Z_]/u           no-unused-vars
+   61:10  error  'error' is assigned a value but never used. Allowed unused vars must match /^[A-Z_]/u  no-unused-vars
+  103:10  error  'err' is defined but never used                                                        no-unused-vars
+
+C:\Users\VENKATESAN\Desktop\Hosting\DoctorProject\src\pages\FindNearby.jsx
+  193:10  error  'locationQuery' is assigned a value but never used. Allowed unused vars must match /^[A-Z_]/u  no-unused-vars
+
+C:\Users\VENKATESAN\Desktop\Hosting\DoctorProject\src\pages\HospitalProfile.jsx
+  9:24  error  'getLabs' is defined but never used. Allowed unused vars must match /^[A-Z_]/u  no-unused-vars
+
+C:\Users\VENKATESAN\Desktop\Hosting\DoctorProject\src\pages\Login.jsx
+  4:39  error  'registerUser' is defined but never used. Allowed unused vars must match /^[A-Z_]/u  no-unused-vars
+
+C:\Users\VENKATESAN\Desktop\Hosting\DoctorProject\src\pages\Settings.jsx
+  5:10  error  'logoutUser' is defined but never used. Allowed unused vars must match /^[A-Z_]/u  no-unused-vars
+
+Γ£û 51 problems (47 errors, 4 warnings)
+

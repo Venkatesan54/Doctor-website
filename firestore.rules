@@ -1,0 +1,46 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    
+    // Allow users to read their own profile, and allow admins full access
+    match /users/{userId} {
+      allow read: if request.auth != null && (request.auth.uid == userId || get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == 'admin');
+      // Adding Input Validation: Require names to be reasonable strings if writing
+      allow write: if request.auth != null && 
+        (request.auth.uid == userId || get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == 'admin') &&
+        (!("name" in request.resource.data) || (request.resource.data.name is string && request.resource.data.name.size() > 0 && request.resource.data.name.size() < 100));
+    }
+    
+    // Public read for doctors, but only admins can write/approve
+    match /doctors/{doctorId} {
+      allow read: if true;
+      allow write: if request.auth != null && (request.auth.uid == doctorId || get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == 'admin');
+    }
+    
+    // Appointments: Users can read their own, doctors can read their own
+    match /appointments/{appointmentId} {
+      allow create: if request.auth != null && request.resource.data.userId == request.auth.uid;
+      allow read: if request.auth != null && (
+        resource.data.userId == request.auth.uid || 
+        resource.data.doctorId == request.auth.uid ||
+        get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == 'admin'
+      );
+      // Fixing IDOR: Patients cannot alter 'status' or 'doctorId' in an update
+      allow update: if request.auth != null && (
+        (resource.data.doctorId == request.auth.uid || get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == 'admin') ||
+        (resource.data.userId == request.auth.uid && request.resource.data.status == resource.data.status && request.resource.data.doctorId == resource.data.doctorId)
+      );
+    }
+    
+    // Public read for hospitals and labs
+    match /hospitals/{hospitalId} {
+      allow read: if true;
+      allow write: if request.auth != null && get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == 'admin';
+    }
+    
+    match /labs/{labId} {
+      allow read: if true;
+      allow write: if request.auth != null && get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == 'admin';
+    }
+  }
+}

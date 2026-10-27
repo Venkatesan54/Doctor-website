@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#2563eb" />
+    
+    <!-- Primary Meta Tags -->
+    <title>DocBook | Find Doctors & Book Appointments Near You</title>
+    <meta name="title" content="DocBook | Find Doctors & Book Appointments Near You" />
+    <meta name="description" content="Discover top-rated doctors, specialized clinics, and clinical laboratories near you. Book appointments instantly with DocBook's trusted healthcare network." />
+    <meta name="keywords" content="doctor, hospital, lab, clinic, book appointment, healthcare, medical, Find a doctor" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://docbook.app/" />
+    <meta property="og:title" content="DocBook | Book Your Doctor Instantly" />
+    <meta property="og:description" content="Connect with verified healthcare professionals, clinics, and labs in your vicinity instantly." />
+    <meta property="og:image" content="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=1200&q=80&auto=format&fm=webp" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://docbook.app/" />
+    <meta property="twitter:title" content="DocBook | Book Your Doctor Instantly" />
+    <meta property="twitter:description" content="Connect with verified healthcare professionals, clinics, and labs in your vicinity instantly." />
+    <meta property="twitter:image" content="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=1200&q=80&auto=format&fm=webp" />
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preload" href="/favicon.svg" as="image" />
+  </head>
+  <body>
+    <script>
+      // If Vite is configured with a base (e.g. /DoctorApp/), ensure the
+      // browser URL includes it. Vite will replace %BASE_URL% at build time.
+      (function() {
+        try {
+          const base = "%BASE_URL%" || "/";
+          if (base && base !== "/" && typeof location !== 'undefined') {
+            if (!location.pathname.startsWith(base)) {
+              const target = base.replace(/\/$/, '') + location.pathname;
+              location.replace(target + location.search + location.hash);
+              return;
+            }
+          }
+        } catch (e) {
+          // ignore
+        }
+
+        // Apply theme immediately before React renders
+        const theme = localStorage.getItem('theme') || 'dark';
+        if (theme === 'dark') {
+          document.documentElement.classList.add('dark');
+        } else {
+          document.documentElement.classList.remove('dark');
+        }
+      })();
+    </script>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
